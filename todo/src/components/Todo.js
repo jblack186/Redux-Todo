@@ -1,29 +1,58 @@
 import React, {Component} from 'react';
-import TodoForm from './TodoFom';
 import { connect } from 'react-redux';
-import { posts } from '../actions';
+import './todo.css';
 
 
-function Todo(props) {
+class Todo extends React.Component{
+    constructor(){
+    super()
+        }
+
    
   
-    console.log(props)
+
+    click(todo){
+        todo.complete = true
+        
+    }
+    
+    render(){
+        const liStyle = {
+            textDecoration: 'line-through'
+        };
+
+        const liStylz = {
+            color: 'green'
+        };
+
+
+        // this.props.todos.map(todo => {
+        //     if(todo.complete === true) {style={liStyle} }
+        // })
+       
+
+
+        
+       console.log(this.props.todos)
     return (
        
         <div>
-            {props.todos.map((todo, index) => {
-               
-                  
-                      return <li key={index}>{todo.todo}</li>;
-                   
+            {this.props.todos.map((todo, index) => {
+               if(todo.complete === false ){
+                       return <li   key={todo.id}  onClick={()=> {this.click(todo)} }>{todo.todo} {todo.id}</li>;
+                   } 
+                else if (todo.complete === true){
+                       return <li   key={todo.id} style={liStyle} >{todo.todo} {todo.id} </li>
+                   }
             })
             }
-            <TodoForm  />
+           
         </div>
     )
         }
+        
     
-    
+}
 const mapStateToProps = state => {
     return {
         todos: state.todos

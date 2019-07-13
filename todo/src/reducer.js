@@ -1,4 +1,4 @@
-import { POSTS, ADD_TODO, SUBMIT_HANDLER } from "./actions";
+import { ADD_TODO } from "./actions";
 
 
 
@@ -14,5 +14,6 @@ export default function reducer(state = initialState, action) {
             return Object.assign({}, state, {todos: newTodos});       
             default: return state
         }
+        
     
 }

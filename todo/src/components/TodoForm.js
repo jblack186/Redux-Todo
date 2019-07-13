@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import { changeHandler, submitHandler, addTodo } from '../actions';
+import React from 'react';
+import { addTodo } from '../actions';
 import { connect } from 'react-redux';
 
 
@@ -33,8 +33,6 @@ addTodo = (event) => {
 
 
     render(){
-        console.log(this.props)
-        console.log(this.state.items)
         return (
             
                 <form onSubmit={this.submitHandler}>
@@ -52,20 +50,9 @@ addTodo = (event) => {
     }
 }
 
- const mapDispatchToProps = {
-    addTodo: addTodo,
-}
+ 
 
 
-// const mapDispatchToProps = (dispatch) => {
-
-//     return {submitHandler: (id) => dispatch({type: 'SUBMIT_HANDLER', id: id}),
-//     addTodo: (id) => dispatch({type: 'ADD_TODO', text:text})
-
-// }
-
-   
-// }
 
 const mapStateToProps = state => {
     return {
